@@ -1,18 +1,22 @@
 {
     "id": "less-chat",
     "title": "Less Chat",
-    "description": "Reduce numer of chat messages rendered in the log at once time",
+    "description": "Limit how many chat messages are rendered while keeping older messages available when scrolling up.",
     "version": "@VERSION@",
     "authors": [
         {
             "name": "Trent Piepho",
             "discord": "xyzzy42",
             "flags": {}
+        },
+        {
+            "name": "Wyderar",
+            "url": "https://github.com/Wyderar"
         }
     ],
     "compatibility": {
         "minimum": "13.344",
-        "verified": "13.348"
+        "verified": "14.370"
     },
     "languages": [
         {
@@ -23,10 +27,10 @@
         }
     ],
     "socket": false,
-    "url": "https://github.com/xyzzy42/less-chat",
-    "manifest": "https://github.com/xyzzy42/less-chat/releases/latest/download/module.json",
-    "download": "https://github.com/xyzzy42/less-chat/releases/download/@TAG@/module.zip",
-    "changelog": "https://github.com/xyzzy42/less-chat/releases/tag/@TAG@",
-    "bugs": "https://github.com/xyzzy42/less-chat/issues",
+    "url": "https://github.com/Wyderar/less-chat-v14",
+    "manifest": "https://github.com/Wyderar/less-chat-v14/releases/latest/download/module.json",
+    "download": "https://github.com/Wyderar/less-chat-v14/releases/download/@TAG@/module.zip",
+    "changelog": "https://github.com/Wyderar/less-chat-v14/releases/tag/@TAG@",
+    "bugs": "https://github.com/Wyderar/less-chat-v14/issues",
     "esmodules": ["@MODULEJS@"]
 }

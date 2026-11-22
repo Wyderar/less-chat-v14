@@ -1,32 +1,40 @@
-# Less Chat
+# Less Chat for Foundry VTT v14
 
-This module will prune the chat log so that not as many chat messages
-are rendered in it at once.  This improves performance, as the chat log
-can become larger, with more elements, than the rest of the app put together.
+Less Chat keeps the chat window small during play. By default it displays the
+50 most recent messages visible to you. Scroll to the top to load 20 older
+messages at a time. When you return to the bottom, it removes the extra cards
+from the window. Foundry keeps the messages in the world's chat history.
 
-*It does not delete the messages.*
+Both limits are configurable per client. The sidebar and popout each maintain
+their own scroll position. Foundry handles posting, notifications, and whisper
+replies, including `/reply`.
 
-You can scroll back and see them, just like normal.  When you get to the top of
-the chat scroll bar, there is brief pause while old messages are rendered, and
-then you can scroll up more.
+## Installation from source
 
-Upon scrolling back to the bottom the extra messages are removed.  They are also
-continuously removed as new ones are added during play.  This way the rendered
-log never gets that big, even after several combats.
+Building requires Node.js, npm, GNU Make, and standard Unix command-line tools.
+Run these commands from the repository root.
 
-But again, the messages are not deleted, this just limits how many messages are
-in the chat log scrolling window at one time during normal use.
+```sh
+npm ci
+make all VERSION=v2.1.0
+```
 
-The settings for the module allows the number of messages kept rendered in the
-log to be configured.  The Foundry default is 100.  And the number rendered in
-each batch when the log is scrolled to the top can be changed too.
+Copy the contents of `dist/` into `Data/modules/less-chat/` in your Foundry
+user data directory. Restart Foundry and enable **Less Chat** in your world.
+This fork uses the original module ID and existing client settings. Installing
+it in that directory replaces the original module files.
 
-### Limitations
+## Compatibility
 
-It's possible to whisper a reply to the last whisper a player received by using
-the chat command `/reply`.  This module breaks that chat feature.
+The manifest declares a minimum of Foundry VTT 13.344. The v14 port was tested
+in Chromium against Foundry 14.370's chat log with simulated world data.
+Testing in a live world and on a v13 runtime is still pending.
 
-Due to the extensive use of private variables by Foundry to prevent modules from
-making changes, I'd have to double the size of the module just to support this
-feature.  I think few people use, or even know about, this reply feature, so I
-haven't done that.
+## Attribution and license
+
+Trent Piepho created the [original Less Chat module](https://github.com/xyzzy42/less-chat)
+in 2025. In November 2026, Wyderar adapted it for Foundry VTT v14 with
+assistance from OpenAI Codex.
+
+Less Chat is free software under the GNU General Public License, version 3 or
+any later version (`GPL-3.0-or-later`). The build includes the full [license](LICENSE).

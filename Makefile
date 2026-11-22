@@ -1,7 +1,7 @@
 VERSION := $(shell git describe --tags --always)
 MODULEJS := less-chat.js
 
-all: dist/module.json dist/$(MODULEJS) dist/lang/en.json
+all: dist/module.json dist/$(MODULEJS) dist/lang/en.json dist/LICENSE
 
 package: module.zip
 
@@ -18,6 +18,9 @@ dist:
 
 dist/lang: | dist
 	mkdir -p dist/lang
+
+dist/LICENSE: LICENSE | dist
+	cp $< $@
 
 dist/module.json: static/module.json | dist
 	sed -e 's/@TAG@/$(VERSION)/' -e 's/@VERSION@/$(patsubst v%,%,$(VERSION))/' -e 's/@MODULEJS@/$(MODULEJS)/' $< > $@
